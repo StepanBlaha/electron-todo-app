@@ -53,7 +53,15 @@ async function getAllPosts() {
       await client.close();
     }
 }
+/*
+post format:
 
+{
+  title: 'My first todo',
+  state: 'todo',
+  date: new Date()
+  }
+*/
 // Function for inserting a post into the collection
 async function insertPost(post) {
     try{
@@ -73,7 +81,13 @@ async function insertPost(post) {
         await client.close();
     }
 }
-
+/*
+insertPost({
+    title: 'My first todo',
+    state: 'todo',
+    date: new Date()
+    });
+    */
 
 // Function to update a post in the collection
 async function updatePost(postID, newPost) {
