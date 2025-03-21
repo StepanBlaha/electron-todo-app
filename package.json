@@ -1,0 +1,16 @@
+{
+  "name": "todo_app",
+  "version": "1.0.0",
+  "description": "todo_app",
+  "license": "UNLICENSED",
+  "author": "stepan",
+  "type": "commonjs",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "test": "run"
+  },
+  "devDependencies": {
+    "electron": "^35.0.3"
+  }
+}
