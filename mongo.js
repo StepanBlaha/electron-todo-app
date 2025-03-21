@@ -63,7 +63,7 @@ post format:
   }
 */
 // Function for inserting a post into the collection
-async function insertPost(post) {
+export async function insertPost(post) {
     try{
         // Connect to the MongoDB client
         await client.connect();

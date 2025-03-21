@@ -10,7 +10,7 @@ const createWindow = () => {
     }
   })
   //loads content into the window
-  win.loadFile('index.html')
+  win.loadFile('todo.html')
 }
 
 app.whenReady().then(() => {
