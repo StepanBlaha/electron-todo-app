@@ -4,7 +4,10 @@ const createWindow = () => {
     // Creates a new window object
   const win = new BrowserWindow({
     width: 800,
-    height: 600
+    height: 600,
+    webPreferences: {
+      nodeIntegration: true // This allows using Node.js in the renderer process
+    }
   })
   //loads content into the window
   win.loadFile('index.html')
