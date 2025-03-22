@@ -4,13 +4,15 @@ import dotenv from 'dotenv';
 import { insertPost, getAllPosts } from './mongo.js';
 
 dotenv.config();
-
+//Create express app
 const app = express();
 const PORT = process.env.PORT || 3000;
-
+//Setup
 app.use(cors());
 app.use(express.json());
 
+
+//Routes
 app.post('/add-todo', async (req, res) => {
     const response = await insertPost(req.body);
     res.json(response);
