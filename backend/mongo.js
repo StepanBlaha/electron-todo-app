@@ -1,4 +1,4 @@
-import { MongoClient, ServerApiVersion } from 'mongodb';
+import { MongoClient, ServerApiVersion, ObjectId } from 'mongodb';
 const uri = "mongodb+srv://stepa15b:VIHctgxlrjBB45io@firstcluster.fbyfb.mongodb.net/?retryWrites=true&w=majority&appName=firstCluster";
 // Create a MongoClient with a MongoClientOptions object to set the Stable API version
 
@@ -81,7 +81,7 @@ export async function insertPost(post) {
 }
 
 // Function to update a post in the collection
-async function updatePost(postID, newPost) {
+export async function updatePost(postID, newPost) {
     try {
         // Connect to the MongoDB client
         await client.connect();
@@ -93,6 +93,7 @@ async function updatePost(postID, newPost) {
         
         const result = await collection.updateOne({ _id: objectID }, { $set: newPost });
         console.log(`Updated ${result.modifiedCount} post(s)`);
+        return { modifiedCount: result.modifiedCount };
     } 
     catch (error) {
         console.error('Error updating post:', error);

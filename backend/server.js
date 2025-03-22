@@ -1,7 +1,7 @@
 import express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
-import { insertPost, getAllPosts } from './mongo.js';
+import { insertPost, getAllPosts, updatePost} from './mongo.js';
 
 dotenv.config();
 //Create express app
@@ -15,6 +15,12 @@ app.use(express.json());
 //Routes
 app.post('/add-todo', async (req, res) => {
     const response = await insertPost(req.body);
+    res.json(response);
+});
+app.post('/update-todo', async (req, res) => {
+    const { postID, newPost } = req.body;
+    const response = await updatePost(postID,newPost);
+    console.log("todo".response);
     res.json(response);
 });
 
