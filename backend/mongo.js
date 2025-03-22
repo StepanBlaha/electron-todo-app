@@ -90,6 +90,9 @@ export async function updatePost(postID, newPost) {
         const db = client.db('Electron-todo-app');
         const collection = db.collection('todo');
         const objectID = new ObjectId(postID);
+        console.log(objectID);
+        console.log(newPost);
+        console.log(postID);
         
         const result = await collection.updateOne({ _id: objectID }, { $set: newPost });
         console.log(`Updated ${result.modifiedCount} post(s)`);
