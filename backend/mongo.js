@@ -1,6 +1,9 @@
-const { MongoClient, ServerApiVersion } = require('mongodb');
+import { MongoClient, ServerApiVersion } from 'mongodb';
 const uri = "mongodb+srv://stepa15b:VIHctgxlrjBB45io@firstcluster.fbyfb.mongodb.net/?retryWrites=true&w=majority&appName=firstCluster";
 // Create a MongoClient with a MongoClientOptions object to set the Stable API version
+
+
+
 const client = new MongoClient(uri, {
   serverApi: {
     version: ServerApiVersion.v1,
@@ -33,7 +36,7 @@ async function listDatabases(client) {
 //listDatabases(client).catch(console.dir);
 
 // Function for getting all the posts from the collection
-async function getAllPosts() {
+export async function getAllPosts() {
     try {
       // Connect to the MongoDB client
       await client.connect();
@@ -44,24 +47,17 @@ async function getAllPosts() {
   
       // Fetch all posts from the collection
       const posts = await collection.find({}).toArray();
-  
-      // Log the posts
-      console.log(posts);
+      //Return the result
+      return { success: true, posts: posts };
+
     } catch (error) {
       console.error('Error fetching posts:', error);
+      return { success: false, error };
     } finally {
       await client.close();
     }
 }
-/*
-post format:
 
-{
-  title: 'My first todo',
-  state: 'todo',
-  date: new Date()
-  }
-*/
 // Function for inserting a post into the collection
 export async function insertPost(post) {
     try{
@@ -73,21 +69,16 @@ export async function insertPost(post) {
         const collection = db.collection('todo');
         const result = await collection.insertOne(post);
         console.log(`A post was inserted with the following id: ${result.insertedId}`);
+        return { success: true, id: result.insertedId };
     }
     catch(error){
         console.error('Error inserting post:', error);
+        return { success: false, error };
     }
     finally{
         await client.close();
     }
 }
-/*
-insertPost({
-    title: 'My first todo',
-    state: 'todo',
-    date: new Date()
-    });
-    */
 
 // Function to update a post in the collection
 async function updatePost(postID, newPost) {
@@ -98,7 +89,6 @@ async function updatePost(postID, newPost) {
         // Access the specific database and collection
         const db = client.db('Electron-todo-app');
         const collection = db.collection('todo');
-
         const objectID = new ObjectId(postID);
         
         const result = await collection.updateOne({ _id: objectID }, { $set: newPost });
@@ -112,7 +102,3 @@ async function updatePost(postID, newPost) {
         await client.close();
     }
 }
-  
-getAllPosts();
-//hh().catch(console.dir);
-//run().catch(console.dir);

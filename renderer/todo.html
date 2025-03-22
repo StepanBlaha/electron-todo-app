@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="script-src 'self'" />
     <title>TodoList</title>
 
     <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.6.0/uicons-bold-rounded/css/uicons-bold-rounded.css'>
@@ -13,12 +14,14 @@
     <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.22/dist/full.min.css" rel="stylesheet" type="text/css" >
     <script src="https://cdn.tailwindcss.com"></script>
 
-    <script src="lib/todo.js"></script>
+    
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 
 
-    <link rel="stylesheet" href="styles/todo.css">
+    <link rel="stylesheet" href="css/todo.css">
+    <script src="js/todo.js" defer></script>
+    <script src="js/renderer.js" defer></script>
 
 
 </head>
@@ -113,5 +116,6 @@
 
 
         </div>
-</body>
+        <p id="info"></p>
+    </body>
 </html>
