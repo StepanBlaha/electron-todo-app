@@ -1,7 +1,7 @@
 import express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
-import { insertPost, getAllPosts, updatePost} from './mongo.js';
+import { insertPost, getAllPosts, updatePost, deletePost} from './mongo.js';
 
 dotenv.config();
 //Create express app
@@ -20,6 +20,12 @@ app.post('/add-todo', async (req, res) => {
 app.post('/update-todo', async (req, res) => {
     const { postID, newPost } = req.body;
     const response = await updatePost(postID,newPost);
+    console.log("todo".response);
+    res.json(response);
+});
+app.post('/delete-todo', async (req, res) => {
+    const {postID}= req.body;
+    const response = await deletePost(postID);
     console.log("todo".response);
     res.json(response);
 });

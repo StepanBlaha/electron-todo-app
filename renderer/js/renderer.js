@@ -29,6 +29,12 @@ async function addTodo() {
         console.error("Error:", error);
         document.getElementById('info').innerText = "Server error.";
     }
+    const posts =getTodos();
+    //Get the result from the promise
+    posts.then(result => {
+        console.log(result);
+        loadTasks(result);
+    })
 }
 
 async function getTodos() {
@@ -78,6 +84,33 @@ async function updateTodo(postId, postState) {
             return result;
         } else {
             document.getElementById('info').innerText = "Failed to update task.";
+            return result;
+        }
+    } catch (error) {
+        console.error("Error:", error);
+        document.getElementById('info').innerText = "Server error.";
+    }
+}
+async function deleteTodo(postId) {
+    data = {
+        postID: postId,
+    }
+
+    try {
+        //Run fetch request to add a todo
+        const response = await fetch('http://localhost:3000/delete-todo', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(data)
+        });
+        //Parse the response
+        const result = await response.json();
+        console.log("rend".result);
+        if (result.success) {
+            document.getElementById('info').innerText = "Task deleted Successfully!";
+            return result;
+        } else {
+            document.getElementById('info').innerText = "Failed to delete task.";
             return result;
         }
     } catch (error) {

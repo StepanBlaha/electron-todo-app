@@ -90,9 +90,6 @@ export async function updatePost(postID, newPost) {
         const db = client.db('Electron-todo-app');
         const collection = db.collection('todo');
         const objectID = new ObjectId(postID);
-        console.log(objectID);
-        console.log(newPost);
-        console.log(postID);
         
         const result = await collection.updateOne({ _id: objectID }, { $set: newPost });
         console.log(`Updated ${result.modifiedCount} post(s)`);
@@ -105,4 +102,22 @@ export async function updatePost(postID, newPost) {
     finally {
         await client.close();
     }
+}
+
+export async function deletePost(postID) {
+  try {
+      await client.connect();
+        
+      // Access the specific database and collection
+      const db = client.db('Electron-todo-app');
+      const collection = db.collection('todo');
+      const objectID = new ObjectId(postID);
+      
+      const result = await collection.deleteOne({_id: objectID});
+      console.log(`Deleted ${result.modifiedCount} post(s)`);
+      return { modifiedCount: result.modifiedCount };
+  } catch (error) {
+    console.error('Error deleting post:', error);
+    
+  }
 }
