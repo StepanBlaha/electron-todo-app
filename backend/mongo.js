@@ -1,5 +1,9 @@
 import { MongoClient, ServerApiVersion, ObjectId } from 'mongodb';
-const uri = "mongodb+srv://stepa15b:VIHctgxlrjBB45io@firstcluster.fbyfb.mongodb.net/?retryWrites=true&w=majority&appName=firstCluster";
+
+import dotenv from 'dotenv';
+dotenv.config();
+
+const uri =process.env.MONGO_API; ;
 // Create a MongoClient with a MongoClientOptions object to set the Stable API version
 
 
