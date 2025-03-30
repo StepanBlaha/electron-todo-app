@@ -9,7 +9,7 @@ npm install mongodb
 npm install jquery
 npm install dotenv
 npm install concurrently --save-dev
-
+npm install electron-builder --save-dev
 
 npx electronmon .
 

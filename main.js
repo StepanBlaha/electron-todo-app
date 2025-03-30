@@ -1,10 +1,38 @@
 const { app, BrowserWindow, Menu } = require('electron/main')
 const path = require('path')
-
+const { spawn } = require('child_process');
 const { writeFile, readFile } = require('fs').promises;
 
 
 const isDev = process.env.NODE_ENV !== 'development'
+
+
+
+async function startBackendServer() {
+  const serverPath = path.join(__dirname, 'backend', 'server.js');
+  const server = spawn('node', [serverPath]);
+
+  // Capture stdout
+  server.stdout.on('data', (data) => {
+    console.log(`Backend server output: ${data.toString()}`);
+  });
+
+  // Capture stderr (error output)
+  server.stderr.on('data', (data) => {
+    console.error(`Backend server error: ${data.toString()}`);
+  });
+
+  // Handle the process close event
+  server.on('close', (code) => {
+    console.log(`Backend server process exited with code ${code}`);
+  });
+
+  // Handle any errors with spawning the process
+  server.on('error', (err) => {
+    console.error(`Error spawning backend server: ${err.code}`);
+    console.error(`Error details: ${err.message}`);
+  });
+}
 
 const createWindow = () => {
     // Creates a new window object
@@ -37,8 +65,12 @@ const createWindow = () => {
 
 //App is ready
 app.whenReady().then(() => {
-    // calls the window when the app is ready
-  createWindow()
+  // calls the window when the app is ready
+  startBackendServer()
+  .then(() => {
+    console.log('Backend server started successfully!');
+    createWindow()
+  })
 
   //implement menu
   const mainMenu = Menu.buildFromTemplate(menu)

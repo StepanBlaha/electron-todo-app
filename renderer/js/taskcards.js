@@ -84,6 +84,7 @@ function loadTasks(tasks){
     //Clear the task wrapper
     taskList.innerHTML = '';
     //Load the tasks
+    console.log(tasks);
     tasks.forEach(element => {
         taskList.innerHTML += generateTaskCard(element, element.state);
     });

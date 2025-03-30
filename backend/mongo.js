@@ -1,12 +1,17 @@
 import { MongoClient, ServerApiVersion, ObjectId } from 'mongodb';
-
 import dotenv from 'dotenv';
+
+// Load environment variables
 dotenv.config();
+const result = dotenv.config();
 
-const uri =process.env.MONGO_API; ;
-// Create a MongoClient with a MongoClientOptions object to set the Stable API version
-
-
+if (result.error) {
+  console.error('Error loading .env file:', result.error);
+} else {
+  console.log('Environment variables loaded successfully');
+}
+// Access the MongoDB URI from the environment variables
+const uri = "process.env.MONGO_API";
 
 const client = new MongoClient(uri, {
   serverApi: {

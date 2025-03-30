@@ -92,6 +92,7 @@ async function getTodos() {
         console.error("Error:", error);
     }
 }
+window.getTodos = getTodos;
 
 async function updateTodo(postId, postState) {
     data = {

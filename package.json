@@ -1,27 +1,73 @@
 {
   "name": "todo_app",
-  "version": "1.0.0",
-  "description": "todo_app",
+  "version": "1.0.1",
+  "description": "Todo app with Electron and MongoDB",
   "license": "UNLICENSED",
   "author": "stepan",
   "type": "commonjs",
   "main": "main.js",
+  "build": {
+    "files": [
+      "**/*",
+    "main.js",
+    "preload.js",
+    "package.json",
+    "backend/**/*",
+    "dist/**/*",
+    "renderer/**/*",
+    "assets/**/*"
+  ],
+  "extraResources": [
+    {
+      "from": "backend/",
+      "to": "backend/"
+    },
+    {
+      "from": "assets/",
+      "to": "assets/"
+    }
+  ],
+    "appId": "com.totodo.blaha",
+    "productName": "ToToDo",
+    "win": {
+      "target": "nsis",
+      "icon": "assets/icons/icon_256x256.png"
+    },
+    "mac": {
+      "category": "public.app-category.utilities",
+      "target": "dmg",
+      "icon": "assets/icons/icon_256x256.png"
+    },
+    "linux": {
+      "target": "AppImage",
+      "icon": "assets/icons/icon_256x256.png"
+    },
+    "publish": {
+      "provider": "github",
+      "owner": "StepanBlaha",
+      "repo": "electron-todo-app"
+    }
+  },
   "scripts": {
     "dev": "concurrently \"npm run dev-backend\" \"npm run start-frontend\"",
     "dev-backend": "cd backend && npm run dev",
-    "start-frontend":"npm run start",
+    "start-frontend": "npm run start",
     "start": "electron .",
-    "test": "run"
+    "start-backend": "cd backend && npm run dev",
+    "test": "run",
+    "build": "electron-builder"
   },
   "devDependencies": {
     "concurrently": "^9.1.2",
-    "electron": "^35.0.3"
+    "electron": "^35.1.2",
+    "electron-builder": "^26.0.12"
   },
   "dependencies": {
     "cors": "^2.8.5",
     "dotenv": "^16.4.7",
     "express": "^4.21.2",
     "jquery": "^3.7.1",
-    "mongodb": "^6.15.0"
+    "mongodb": "^6.15.0",
+    "mongodb-connection-string-url": "^3.0.2"
   }
 }
