@@ -18,6 +18,27 @@ function addEventListeners() {
             addTodo();
         });
     }
+    const timerStartMenu = document.getElementById('timerRun');
+    if (timerStartMenu) {
+        timerStartMenu.addEventListener('click', function(event) {
+            event.preventDefault();
+            startTimer();
+        });
+    }
+    const timerStopMenu = document.getElementById('timerStop');
+    if (timerStopMenu) {
+        timerStopMenu.addEventListener('click', function(event) {
+            event.preventDefault();
+            stopTimer();
+        });
+    }
+    const timerResetMenu = document.getElementById('timerReset');
+    if (timerResetMenu) {
+        timerResetMenu.addEventListener('click', function(event) {
+            event.preventDefault();
+            resetTimer();
+        });
+    }
 }
 async function deleteTask() {
      // Use event delegation on #todoContent for habitCheckId
@@ -86,6 +107,10 @@ function taskLoad(){
         deleteTask();
     })
 }
+
+
+
+
 
 
 
