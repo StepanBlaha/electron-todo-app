@@ -1,6 +1,9 @@
 const { app, BrowserWindow, Menu } = require('electron/main')
 const path = require('path')
 
+const { writeFile, readFile } = require('fs').promises;
+
+
 const isDev = process.env.NODE_ENV !== 'development'
 
 const createWindow = () => {
@@ -8,6 +11,16 @@ const createWindow = () => {
   const win = new BrowserWindow({
     width: isDev? 1400: 800,
     height: 1000,
+    titleBarStyle: 'hidden',
+    frame: false,
+    titleBarOverlay: {
+      color: '#B8B449',
+      symbolColor: '#ffffff',
+      height: 30
+    } ,
+ 
+
+//    frame: false,
     webPreferences: {
       nodeIntegration: true, // This allows using Node.js in the renderer process,
       preload: path.join(__dirname, 'preload.js')

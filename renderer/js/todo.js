@@ -74,6 +74,7 @@ async function checkTask() {
 
 
 function taskLoad(){
+    //getLocalTodos();
     //Get the todo (returns a promise)
     const posts =getTodos();
     //Get the result from the promise

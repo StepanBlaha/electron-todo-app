@@ -1,3 +1,5 @@
+
+
 async function addTodo() {
     //Get the task name from the input field
     const todoName = document.getElementById('addTaskInput').value;
@@ -36,6 +38,37 @@ async function addTodo() {
         loadTasks(result);
     })
 }
+
+//not used yet
+async function addLocalTodo() {
+    //Get the task name from the input field
+    const todoName = document.getElementById('addTaskInput').value;
+    if (!todoName) {
+        return;
+    }
+    //Format the data
+    const data = {
+        title: todoName,
+        state: 'todo',
+        date: new Date()
+    };
+    const filePath = "data.json";
+
+
+
+}
+async function getLocalTodos(){
+    const filePath = "js/data.json";
+    fetch(filePath)
+    .then(response => response.json())
+    .then(data => {
+        console.log("Todos:", data);
+    })
+    .catch(error => {
+        console.error("Error:", error);
+    });
+}
+//not used yet
 
 async function getTodos() {
     try{
