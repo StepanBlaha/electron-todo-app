@@ -7,10 +7,14 @@
   "type": "commonjs",
   "main": "main.js",
   "scripts": {
+    "dev": "concurrently \"npm run dev-backend\" \"npm run start-frontend\"",
+    "dev-backend": "cd backend && npm run dev",
+    "start-frontend":"npm run start",
     "start": "electron .",
     "test": "run"
   },
   "devDependencies": {
+    "concurrently": "^9.1.2",
     "electron": "^35.0.3"
   },
   "dependencies": {

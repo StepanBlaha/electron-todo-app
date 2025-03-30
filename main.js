@@ -18,9 +18,8 @@ const createWindow = () => {
       symbolColor: '#ffffff',
       height: 30
     } ,
+    icon: path.join(__dirname, 'assets', 'icons/win/icon.ico'),
  
-
-//    frame: false,
     webPreferences: {
       nodeIntegration: true, // This allows using Node.js in the renderer process,
       preload: path.join(__dirname, 'preload.js')

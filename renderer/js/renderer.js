@@ -23,13 +23,13 @@ async function addTodo() {
         //Parse the response
         const result = await response.json();
         if (result.success) {
-            document.getElementById('info').innerText = "Task Added Successfully!";
+            console.log("Task Added Successfully!");
         } else {
-            document.getElementById('info').innerText = "Failed to add task.";
+            console.log("Failed to add task.");
         }
     } catch (error) {
         console.error("Error:", error);
-        document.getElementById('info').innerText = "Server error.";
+        console.log("Server error.");
     }
     const posts =getTodos();
     //Get the result from the promise
@@ -81,10 +81,10 @@ async function getTodos() {
         const posts = result.posts;
 
         if (result.success) {
-            document.getElementById('info').innerText = "Tasks fetched successfully!";
+            console.log("Tasks fetched successfully!");
             return posts;
         } else {
-            document.getElementById('info').innerText = "Failed to fetch tasks.";
+            console.log("Failed to fetch tasks.");
             return "error";
         }
     }
@@ -113,15 +113,15 @@ async function updateTodo(postId, postState) {
         const result = await response.json();
         console.log("rend".result);
         if (result.success) {
-            document.getElementById('info').innerText = "Task updated Successfully!";
+            console.log("Task updated Successfully!");
             return result;
         } else {
-            document.getElementById('info').innerText = "Failed to update task.";
+            console.log("Failed to update task.");
             return result;
         }
     } catch (error) {
         console.error("Error:", error);
-        document.getElementById('info').innerText = "Server error.";
+        console.log("Server error.");
     }
 }
 async function deleteTodo(postId) {
@@ -140,14 +140,14 @@ async function deleteTodo(postId) {
         const result = await response.json();
         console.log("rend".result);
         if (result.success) {
-            document.getElementById('info').innerText = "Task deleted Successfully!";
+            console.log("Task deleted Successfully!");
             return result;
         } else {
-            document.getElementById('info').innerText = "Failed to delete task.";
+            console.log("Failed to delete task.");
             return result;
         }
     } catch (error) {
         console.error("Error:", error);
-        document.getElementById('info').innerText = "Server error.";
+        console.log("Server error.");
     }
 }
