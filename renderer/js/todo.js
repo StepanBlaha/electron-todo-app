@@ -100,7 +100,6 @@ function taskLoad(){
     const posts =getTodos();
     //Get the result from the promise
     posts.then(result => {
-        console.log(result);
         loadTasks(result);
     }).then(() => {
         checkTask();
