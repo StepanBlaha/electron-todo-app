@@ -12,7 +12,6 @@
     "main.js",
     "preload.js",
     "package.json",
-    "backend/**/*",
     "dist/**/*",
     "renderer/**/*",
     "assets/**/*"
@@ -49,11 +48,9 @@
     }
   },
   "scripts": {
-    "dev": "concurrently \"npm run dev-backend\" \"npm run start-frontend\"",
-    "dev-backend": "cd backend && npm run dev",
+    "dev": "npm run start-frontend",
     "start-frontend": "npm run start",
     "start": "electron .",
-    "start-backend": "cd backend && npm run dev",
     "test": "run",
     "build": "electron-builder"
   },
