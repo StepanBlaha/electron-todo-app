@@ -1,4 +1,4 @@
-
+/*
 async function addTodo() {
     //Get the task name from the input field
     const todoName = document.getElementById('addTaskInput').value;
@@ -84,11 +84,11 @@ async function deleteTodo(postId) {
 }
 
 
-
+*/
 /*
 
 Server version- not yet compatible with the build
-
+*/
 
 
 async function addTodo() {
@@ -243,4 +243,4 @@ async function deleteTodo(postId) {
         console.log("Server error.");
     }
 }
- */
+ 

@@ -70,11 +70,11 @@ const createWindow = () => {
 //App is ready
 app.whenReady().then(() => {
   // calls the window when the app is ready
-  /*
+  
   startBackendServer()
   .then(() => {
     console.log('Backend server started successfully!');
-  })*/
+  })
   createWindow()
 
   //implement menu
