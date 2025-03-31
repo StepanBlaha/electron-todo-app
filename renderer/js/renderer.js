@@ -1,3 +1,4 @@
+
 async function addTodo() {
     //Get the task name from the input field
     const todoName = document.getElementById('addTaskInput').value;

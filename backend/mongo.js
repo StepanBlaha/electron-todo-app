@@ -11,7 +11,7 @@ if (result.error) {
   console.log('Environment variables loaded successfully');
 }
 // Access the MongoDB URI from the environment variables
-const uri = "process.env.MONGO_API";
+const uri = process.env.MONGO_API;
 
 const client = new MongoClient(uri, {
   serverApi: {
