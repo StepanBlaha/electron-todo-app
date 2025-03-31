@@ -7,7 +7,7 @@ const { writeFile, readFile } = require('fs').promises;
 const isDev = process.env.NODE_ENV !== 'development'
 
 
-
+/*
 async function startBackendServer() {
   const serverPath = path.join(__dirname, 'backend', 'server.js');
   const server = spawn('node', [serverPath]);
@@ -33,12 +33,16 @@ async function startBackendServer() {
     console.error(`Error details: ${err.message}`);
   });
 }
-
+*/
 const createWindow = () => {
     // Creates a new window object
   const win = new BrowserWindow({
     width: isDev? 1400: 800,
     height: 1000,
+    //doesnt work
+    x: width - 1400,
+    y: 0,
+    alwaysOnTop: true,
     titleBarStyle: 'hidden',
     frame: false,
     titleBarOverlay: {
@@ -66,11 +70,11 @@ const createWindow = () => {
 //App is ready
 app.whenReady().then(() => {
   // calls the window when the app is ready
-  startBackendServer()
+  /*startBackendServer()
   .then(() => {
     console.log('Backend server started successfully!');
-    createWindow()
-  })
+  })*/
+  createWindow()
 
   //implement menu
   const mainMenu = Menu.buildFromTemplate(menu)
