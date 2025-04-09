@@ -11,17 +11,24 @@ p, h1, h2, h3, h4, h5, h6{
 }
 .titlebar {
   height: 30px;
-  
+  -webkit-app-region: drag;
   color: white;
   display: flex;
   justify-content: center;
   align-items: center;
   app-region: drag;
   user-select: none;
+  position: fixed;
+
+  top: 0;
+  left: 0;
+  width: 100%;
 }
 
 
-
+#mainContent{
+  margin-top: 15px;
+}
 
 
 
@@ -463,6 +470,7 @@ p, h1, h2, h3, h4, h5, h6{
   text-align: center;
   font-weight: 600;
   float: left;
+  position: relative;
 }
 #timer{
   width: 100%;
@@ -564,4 +572,48 @@ p, h1, h2, h3, h4, h5, h6{
   box-shadow: 0 0.1rem #95923d;
   -webkit-transform: translate(0em, 0.5em);
   transform: translate(0em, 0.5em);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#openTimerBtn{
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  top: 25px;
+  right: 5%;
+}
+#openTimerBtn svg{
+  stroke: #9098a9;
+}
+#openTimerBtn:hover{
+  cursor: pointer;
+}
+#timerWindowDiv{
+  width: 90%;
+  margin: 0 auto;
+  margin-top: 20px;
+  height: 160px;
+  border-radius: 20px;
+  background-color: #eee;
+  box-shadow: 0 0.4rem #b5b1b1;
+  margin-top: 45px;
 }

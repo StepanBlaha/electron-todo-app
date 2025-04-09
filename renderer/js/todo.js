@@ -1,14 +1,17 @@
 
-
 $(document).ready(function(){
     addEventListeners();
-   
     taskLoad();
+    setWindowListeners();
 
-
-
-   
+    
 });
+function setWindowListeners(){
+    // Listener for opening timer window
+    document.getElementById('openTimerBtn').addEventListener('click', () => {
+        window.electronAPI.openTimerWindow()
+    })
+}
 
 function addEventListeners() {
     const button = document.getElementById('submitTaskButton');

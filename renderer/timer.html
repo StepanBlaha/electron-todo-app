@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline' https://code.jquery.com;">
+    <title>TodoList</title>
+
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.6.0/uicons-bold-rounded/css/uicons-bold-rounded.css'>
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.6.0/uicons-regular-straight/css/uicons-regular-straight.css'>
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.6.0/uicons-regular-rounded/css/uicons-regular-rounded.css'>
+    
+    <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>-->
+    <!--<link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.22/dist/full.min.css" rel="stylesheet" type="text/css" >
+    <script src="https://cdn.tailwindcss.com"></script>-->
+
+    
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" defer></script>
+    <link rel="stylesheet" href="css/todo.css">
+    <script src="js/renderer.js" defer></script>
+    <script src="js/todo.js" defer></script>
+    <script src="js/taskcards.js" defer></script>
+
+    <script src="js/timer.js" defer></script>
+</head>
+<body>
+    <div class="titlebar"></div>
+
+
+    <div id="mainContent">
+        <div id="timerWindowDiv">
+            <div id="timerText">
+                <p id="timer">00:00</p>
+            </div>
+            <div id="timerButtons">
+
+                <div id="timerRun">
+                    <p>Start</p>
+                </div>
+                <div id="timerReset">
+                    <p>Reset</p>
+                </div>
+                <div id="timerStop">
+                    <p>Stop</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
