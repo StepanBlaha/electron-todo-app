@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline' https://code.jquery.com;">
+    <!--<meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline' https://code.jquery.com;">-->
     <title>TodoList</title>
 
     <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.6.0/uicons-bold-rounded/css/uicons-bold-rounded.css'>
@@ -15,14 +15,15 @@
     <script src="https://cdn.tailwindcss.com"></script>-->
 
     
-
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" defer></script>
     <link rel="stylesheet" href="css/todo.css">
-    <script src="js/renderer.js" defer></script>
-    <script src="js/todo.js" defer></script>
-    <script src="js/taskcards.js" defer></script>
+ 
+
+
 
     <script src="js/timer.js" defer></script>
+    <script src="js/swipe.js" defer></script>
 </head>
 <body>
     <div class="titlebar"></div>
@@ -48,5 +49,31 @@
         </div>
     </div>
 
+
+    <!-- Your HTML content -->
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">
+                <div class="swiper-custom-card">Slide 1</div>
+            </div>
+            <div class="swiper-slide">
+                <div class="swiper-custom-card">Slide 2</div>
+            </div>
+            <div class="swiper-slide">
+                <div class="swiper-custom-card">Slide 3</div>
+            </div>
+        </div>
+        
+        <!-- Add Pagination -->
+        <div class="swiper-pagination"></div>
+        
+
+    </div>
+
+    <!-- Your own script -->
+    <script type="module" src="js/swipe.js"></script>
+
+    <!-- Include Swiper JS from CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 </body>
 </html>

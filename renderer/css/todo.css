@@ -617,3 +617,42 @@ p, h1, h2, h3, h4, h5, h6{
   box-shadow: 0 0.4rem #b5b1b1;
   margin-top: 45px;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.swiper-slide {
+  width: 600px;
+  height: 300px;
+  text-align: center !important;
+  border: 1px solid red;
+  display: flex;
+  justify-content: center;
+  align-items: center
+}
+.swiper-wrapper{
+  height: fit-content;
+  margin-top: 50px;
+}
+.swiper-custom-card{
+  height: 300px;
+  width: 200px;
+  border: 2px solid blue;
+
+
+  background-color: #B8B449;
+  box-shadow: 0 0.4rem #95923d;
+  border-radius: 20px;
+  border: 2px solid #B8B449;
+}

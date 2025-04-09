@@ -9,23 +9,23 @@
   "build": {
     "files": [
       "**/*",
-    "main.js",
-    "preload.js",
-    "package.json",
-    "dist/**/*",
-    "renderer/**/*",
-    "assets/**/*"
-  ],
-  "extraResources": [
-    {
-      "from": "backend/",
-      "to": "backend/"
-    },
-    {
-      "from": "assets/",
-      "to": "assets/"
-    }
-  ],
+      "main.js",
+      "preload.js",
+      "package.json",
+      "dist/**/*",
+      "renderer/**/*",
+      "assets/**/*"
+    ],
+    "extraResources": [
+      {
+        "from": "backend/",
+        "to": "backend/"
+      },
+      {
+        "from": "assets/",
+        "to": "assets/"
+      }
+    ],
     "appId": "com.totodo.blaha",
     "productName": "ToToDo",
     "win": {
@@ -65,6 +65,7 @@
     "express": "^4.21.2",
     "jquery": "^3.7.1",
     "mongodb": "^6.15.0",
-    "mongodb-connection-string-url": "^3.0.2"
+    "mongodb-connection-string-url": "^3.0.2",
+    "swiper": "^11.2.6"
   }
 }

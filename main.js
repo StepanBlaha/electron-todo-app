@@ -14,7 +14,7 @@ const isDev = process.env.NODE_ENV !== 'development'
 function createTimerWindow(width){
   const timerWindow = new BrowserWindow({
     width: 500,
-    height: 250,
+    height: 1050,
     x: width - 500,
     y: 0,
     resizable: false,
@@ -33,6 +33,10 @@ function createTimerWindow(width){
     }
   
   })
+
+  if (isDev) {
+    timerWindow.webContents.openDevTools()
+  }
   //loads content into the window
   timerWindow.loadFile('renderer/timer.html')
 
