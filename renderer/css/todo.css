@@ -511,6 +511,7 @@ p, h1, h2, h3, h4, h5, h6{
   align-items: center;
   min-width: 65px;
   border: 2px solid #B8B449;
+  transition: all ease-in-out 0.2s;
 }
 #timerRun:hover {
   background-color:  #95923d;
@@ -538,6 +539,7 @@ p, h1, h2, h3, h4, h5, h6{
   align-items: center;
   min-width: 65px;
   border: 2px solid #B8B449;
+  transition: all ease-in-out 0.2s;
 }
 #timerStop:hover {
   background-color:  #95923d;
@@ -564,6 +566,7 @@ p, h1, h2, h3, h4, h5, h6{
   align-items: center;
   min-width: 88px;
   border: 2px solid #B8B449;
+  transition: all ease-in-out 0.2s;
 }
 #timerReset:hover {
   background-color:  #95923d;
@@ -603,8 +606,10 @@ p, h1, h2, h3, h4, h5, h6{
 }
 #openTimerBtn svg{
   stroke: #9098a9;
+  transition: 0.2s ease-in-out;
 }
-#openTimerBtn:hover{
+#openTimerBtn svg:hover{
+  stroke: #42454b;
   cursor: pointer;
 }
 #timerWindowDiv{
@@ -632,39 +637,46 @@ p, h1, h2, h3, h4, h5, h6{
 
 
 
-.swiper-slide {
-  width: 600px;
-  height: 300px;
-  text-align: center !important;
-  border: 1px solid red;
-  display: flex;
-  justify-content: center;
-  align-items: center
-}
-.swiper-wrapper{
-  height: fit-content;
+
+
+
+
+
+#punchCardPage{
+  width: 90%;
+  height: 50px;
+  margin: 0 auto;
   margin-top: 50px;
 }
-.swiper-custom-card{
-  height: 300px;
-  width: 200px;
-  border: 2px solid blue;
-
-
-  background-color: #B8B449;
-  box-shadow: 0 0.4rem #95923d;
-  border-radius: 20px;
-  border: 2px solid #B8B449;
+#openPunchCardsBtn{
+  width: fit-content;
+  height: fit-content;
+  float: right;
 }
-.hidden-slide{
-  border: 2px solid red;
+#openPunchCardsBtn svg {
+  stroke: #9098a9;
+  width: 40px;
+  height: 40px;
+  float: right;
+  transition: 0.2s ease-in-out;
 }
-
-
-
-
-
-
+#openPunchCardsBtn svg:hover{
+  stroke: #42454b;
+  cursor: pointer;
+}
+#punchCardsText{
+  height:100%;
+  width: 70%;
+  float: left; 
+  padding-left: 15px;
+  display: flex;
+  align-items: center;
+}
+#punchCardsText p{
+  margin: 0;
+  font-size: 30px;
+  font-weight: 700;
+}
 
 
 #card-container {
@@ -672,7 +684,7 @@ p, h1, h2, h3, h4, h5, h6{
   width: 80%;
   height: 400px;
   margin: 0 auto;
-  margin-top: 50px;
+  margin-top: 30px;
 }
 
 .punchCard {
@@ -688,14 +700,8 @@ p, h1, h2, h3, h4, h5, h6{
   transition: transform 0.4s ease-out, opacity 0.4s ease-out;
   border-radius: 20px;
   background-color: #eee;
-
-
-
   padding: 10px;
   box-sizing: border-box;
-
-
-
 }
 .punchCard p{
   margin: 0;
@@ -782,8 +788,7 @@ p, h1, h2, h3, h4, h5, h6{
 #punchCardFormDiv{
   width: 100%;
   height: 100px;
-  border: 1px solid red;
-  margin-top: 20px;
+  margin-top: 30px;
 }
 #addPunchCardFormWrapper{
   height: 64px;
@@ -867,7 +872,6 @@ p, h1, h2, h3, h4, h5, h6{
   height: fit-content;
   margin: 0 auto;
   margin-top: 50px;
-  border: 1px solid red;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -942,10 +946,15 @@ p, h1, h2, h3, h4, h5, h6{
   height: 20px;
   float: right;
   stroke: #9098a9;
+  transition: 0.2s ease-in-out;
 
 }
 .delete-punchcard svg:hover{
   stroke: #4a4d53;
   stroke:#b62222 ;
   transition: 0.2s ease-in-out;
+}
+#punchCardTitleMargin{
+  margin-top: 20px;
+  height: 1px;
 }

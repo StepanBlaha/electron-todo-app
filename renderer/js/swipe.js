@@ -192,6 +192,10 @@ function addCustomEventListeners() {
         loadCards()
         loadCardList()
     })
+
+    document.getElementById('openPunchCardsBtn').addEventListener('click', () => {
+        window.electronAPI.openPunchCardWindow()
+    })
 }
 
 

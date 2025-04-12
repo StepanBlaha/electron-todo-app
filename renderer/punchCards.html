@@ -14,47 +14,48 @@
     <!--<link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.22/dist/full.min.css" rel="stylesheet" type="text/css" >
     <script src="https://cdn.tailwindcss.com"></script>-->
 
-    
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" defer></script>
     <link rel="stylesheet" href="css/todo.css">
-
-
     <script src="https://hammerjs.github.io/dist/hammer.min.js"></script>
-
- 
-
-
-
     <script src="js/timer.js" defer></script>
-
     <script type="module" src="js/swipe.js"></script>
 </head>
 <body>
     <div class="titlebar"></div>
 
-
-    <div id="mainContent">
-        <div id="timerWindowDiv">
-            <div id="timerText">
-                <p id="timer">00:00</p>
-            </div>
-            <div id="timerButtons">
-
-                <div id="timerRun">
-                    <p>Start</p>
+    <div id="punchCardTitleMargin"></div>
+    <!--Punch card form-->
+    <div id="punchCardFormDiv">
+        <div id="addPunchCardFormWrapper">
+            <form action="" method="post" id="addPunchCardForm">
+                <input type="text" name="itemName" id="addPunchCardInput" placeholder="New card...">
+                <div id="submitPunchCardButton">
+                    <span>
+                        <svg height="34px"  width="34px"  viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M0 0h24v24H0z" fill="none"></path>
+                        <path d="M11 11V5h2v6h6v2h-6v6h-2v-6H5v-2z" fill="currentColor"></path>
+                        </svg>
+                    </span>
                 </div>
-                <div id="timerReset">
-                    <p>Reset</p>
-                </div>
-                <div id="timerStop">
-                    <p>Stop</p>
-                </div>
-            </div>
+            </form>
         </div>
     </div>
 
 
+    <!--Punch cards-->
+    <div id="card-container"></div>
+    <div id="score">Score: 0</div>
+
+    <!--Punch card reset button-->
+    <div id="reload-card-button">
+        <p>Reset</p>
+    </div>
+
+
+    <div id="all-cards"></div>
+
+    
     <!-- Your own script -->
     <script type="module" src="js/swipe.js"></script>
 

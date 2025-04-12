@@ -21,9 +21,10 @@
     <script src="js/renderer.js" defer></script>
     <script src="js/todo.js" defer></script>
     <script src="js/taskcards.js" defer></script>
+    <script src="https://hammerjs.github.io/dist/hammer.min.js"></script>
 
     <script src="js/timer.js" defer></script>
-    <script type="module" src="js/swipe.js"></script>
+    <script type="module" src="js/swipe.js" defer></script>
 
 </head>
 <body>
@@ -63,7 +64,7 @@
                 </div>
 
 
-        <!--<p id="info"></p>-->
+<!-----------------------------------------Timer section---------------------------------------->
         <div id="timerDiv">
             <div id="timerText">
                 <p id="timer">00:00</p>
@@ -84,24 +85,52 @@
                 </div>
             </div>
         </div>
-        <div class="swiper-container">
-            <div class="swiper-wrapper">
-                <div class="swiper-slide">Slide 1</div>
-                <div class="swiper-slide">Slide 2</div>
-                <div class="swiper-slide">Slide 3</div>
-            </div>
-            
-            <!-- Add Pagination -->
-            <div class="swiper-pagination"></div>
-            
-            <!-- Add Navigation -->
-            <div class="swiper-button-next"></div>
-            <div class="swiper-button-prev"></div>
+<!-----------------------------------------Timer section---------------------------------------->
+
+
+
+
+
+<!-----------------------------------------Punch card section---------------------------------------->
+    
+    <div id="punchCardPage">
+        <div id="punchCardsText">
+            <p>Punch Cards</p>
         </div>
-    
-        <!-- Your own script -->
-        <script type="module" src="js/swipe.js"></script>
-    
+        <div id="openPunchCardsBtn">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-square-arrow-out-up-right-icon lucide-square-arrow-out-up-right"><path d="M21 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h6"/><path d="m21 3-9 9"/><path d="M15 3h6v6"/></svg>
+        </div>
+    </div>
+
+        <!--Punch card form-->
+        <div id="punchCardFormDiv">
+            <div id="addPunchCardFormWrapper">
+                <form action="" method="post" id="addPunchCardForm">
+                    <input type="text" name="itemName" id="addPunchCardInput" placeholder="New card...">
+                    <div id="submitPunchCardButton">
+                        <span>
+                            <svg height="34px"  width="34px"  viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M0 0h24v24H0z" fill="none"></path>
+                            <path d="M11 11V5h2v6h6v2h-6v6h-2v-6H5v-2z" fill="currentColor"></path>
+                            </svg>
+                        </span>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!--Punch cards-->
+        <div id="card-container"></div>
+        <div id="score">Score: 0</div>
+
+        <!--Punch card reset button-->
+        <div id="reload-card-button">
+            <p>Reset</p>
+        </div>
+
+        <div id="all-cards"></div>
+<!-----------------------------------------Punch card section---------------------------------------->
+
         <!-- Include Swiper JS from CDN -->
         <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 

@@ -5,5 +5,7 @@ contextBridge.exposeInMainWorld('electron', {
     receive: (channel, callback) => ipcRenderer.on(channel, (event, ...args) => callback(...args))
 });
 contextBridge.exposeInMainWorld('electronAPI', {
-    openTimerWindow: () => ipcRenderer.send('open-timer-window')
-  })
+  openTimerWindow: () => ipcRenderer.send('open-timer-window'),
+  openPunchCardWindow: () => ipcRenderer.send('open-punch-card-window')
+})
+

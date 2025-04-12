@@ -9,12 +9,19 @@ ipcMain.on('open-timer-window', () => {
   createTimerWindow(width)
 })
 
+ipcMain.on('open-punch-card-window', () => {
+  const primaryDisplay = screen.getPrimaryDisplay();
+  const { width } = primaryDisplay.workAreaSize;
+  createPunchCardWindow(width)
+})
+
 const isDev = process.env.NODE_ENV !== 'development'
 
+// Timer window
 function createTimerWindow(width){
   const timerWindow = new BrowserWindow({
     width: 500,
-    height: 1050,
+    height: 250,
     x: width - 500,
     y: 0,
     resizable: false,
@@ -39,6 +46,36 @@ function createTimerWindow(width){
   }
   //loads content into the window
   timerWindow.loadFile('renderer/timer.html')
+
+}
+// Push card window
+function createPunchCardWindow(width){
+  const punchCardWindow = new BrowserWindow({
+    width: 500,
+    height: 800,
+    x: width - 500,
+    y: 0,
+    titleBarStyle: 'hidden',
+    frame: false,
+    titleBarOverlay: {
+      color: '#B8B449',
+      symbolColor: '#ffffff',
+      height: 30
+    } ,
+    icon: path.join(__dirname, 'assets', 'icons/win/icon.ico'),
+ 
+    webPreferences: {
+      nodeIntegration: true, 
+      preload: path.join(__dirname, 'preload.js')
+    }
+  
+  })
+
+  if (isDev) {
+    punchCardWindow.webContents.openDevTools()
+  }
+  //loads content into the window
+  punchCardWindow.loadFile('renderer/punchCards.html')
 
 }
 
@@ -87,6 +124,7 @@ app.whenReady().then(() => {
 
   // calls the window when the app is ready
   createWindow(width)
+
 
   //implement menu
   const mainMenu = Menu.buildFromTemplate(menu)
