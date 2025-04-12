@@ -675,18 +675,40 @@ p, h1, h2, h3, h4, h5, h6{
   margin-top: 50px;
 }
 
-.card {
+.punchCard {
   position: absolute;
   width: 100%;
   height: 100%;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  justify-content: space-around;
   align-items: center;
-  font-size: 2rem;
+  font-size: clamp(1rem, 5vw, 2rem);
   transition: transform 0.4s ease-out, opacity 0.4s ease-out;
   border-radius: 20px;
   background-color: #eee;
+
+
+
+  padding: 10px;
+  box-sizing: border-box;
+
+
+
+}
+.punchCard p{
+  margin: 0;
+  text-align: center;
+  text-align: center; 
+  white-space: normal; 
+  word-wrap: break-word; 
+  word-break: break-word; 
+  padding: 10px;
+  box-sizing: border-box;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  
 }
 
 #score {
@@ -709,6 +731,7 @@ p, h1, h2, h3, h4, h5, h6{
   border: 2px solid #B8B449;
   margin-right: 10%;
   float: right;
+  transition: all ease-in-out 0.2s;
 
 
   /*For stopping select*/
@@ -884,10 +907,13 @@ p, h1, h2, h3, h4, h5, h6{
   text-overflow: ellipsis;
   transition: height 0.3s ease; 
   margin: 0;
+
   text-align: center; 
   white-space: normal; 
   word-wrap: break-word; 
   word-break: break-word; 
+
+
   text-align: center; 
   transition: max-height 0.3s ease; 
   display: flex;
@@ -895,6 +921,8 @@ p, h1, h2, h3, h4, h5, h6{
   text-align: center;
   flex-direction: column;
   justify-content: space-around;
+  min-height: 60px;
+  max-height: 60px;
 }
 
 .card-all:hover .card-text {
@@ -903,11 +931,21 @@ p, h1, h2, h3, h4, h5, h6{
 .delete-punchcard-wrapper{
   width: 100%;
   height: 20px;
-  border: 1px solid red;
 }
 .delete-punchcard{
-  border: 1px solid green;
   height: 100%;
   width: 30px;
   float: right;
+}
+.delete-punchcard svg{
+  width: 20px;
+  height: 20px;
+  float: right;
+  stroke: #9098a9;
+
+}
+.delete-punchcard svg:hover{
+  stroke: #4a4d53;
+  stroke:#b62222 ;
+  transition: 0.2s ease-in-out;
 }
