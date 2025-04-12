@@ -656,3 +656,182 @@ p, h1, h2, h3, h4, h5, h6{
   border-radius: 20px;
   border: 2px solid #B8B449;
 }
+.hidden-slide{
+  border: 2px solid red;
+}
+
+
+
+
+
+
+
+
+#card-container {
+  position: relative;
+  width: 80%;
+  height: 400px;
+  margin: 0 auto;
+  margin-top: 50px;
+}
+
+.card {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  transition: transform 0.4s ease-out, opacity 0.4s ease-out;
+  border-radius: 20px;
+  background-color: #eee;
+}
+
+#score {
+  margin-top: 1rem;
+  font-size: 1.5rem;
+}
+#reload-card-button{
+  width: 100px;
+  height: 55px;
+  border: 1px solid green;
+  background-color: #B8B449;
+  box-shadow: 0 0.4rem #95923d;
+  border-radius: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 88px;
+  border: 2px solid #B8B449;
+  margin-right: 10%;
+  float: right;
+
+
+  /*For stopping select*/
+  -webkit-user-select: none; 
+  -moz-user-select: none;    
+  -ms-user-select: none;     
+  user-select: none;  
+}
+#reload-card-button:hover {
+  background-color:  #95923d;
+}
+#reload-card-button:active {
+  box-shadow: 0 0.1rem #95923d;
+  -webkit-transform: translate(0em, 0.5em);
+  transform: translate(0em, 0.5em);
+}
+#reload-card-button p{
+  margin: 0 auto;
+  font-size: 20px;
+  color: white !important;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*Punch card add form*/
+#punchCardFormDiv{
+  width: 100%;
+  height: 100px;
+  border: 1px solid red;
+  margin-top: 20px;
+}
+#addPunchCardFormWrapper{
+  height: 64px;
+  width: 100%;
+  float: left;
+}
+#addPunchCardForm{
+  height: 100%;
+  width: 100%;
+}
+#addPunchCardInput{
+  height: 100%;
+}
+#addPunchCardInput{
+  background-color: #eee;
+  border: none;
+  padding-left: 5px;
+  margin-left: 5%;
+  font-size: 20px ;
+  font-weight: 600;
+  width: 65%;
+  border-radius: 1rem;
+  color: black;
+  box-shadow: 0 0.4rem #b5b1b1;
+  cursor: pointer;
+  float: left;
+  text-indent: 10px; 
+}
+
+#addPunchCardForm input:focus {
+  outline-color: #95923d;
+}
+#submitPunchCardFormWrapper{
+  height: 40%;
+  width: 25%;
+  float: left;
+}
+#submitPunchCardButton {
+  border: 2px solid #B8B449;
+  background-color: #B8B449;
+  border-radius: 0.9em;
+  cursor: pointer;
+  padding: 0.8em 0.8em 0.8em 0.8em;
+  margin-left: 4%;
+  width: 21%;
+  transition: all ease-in-out 0.2s;
+  font-size: 16px;
+  float: left;
+  height: 100%;
+  box-sizing: border-box;
+  box-shadow: 0 0.4rem #95923d;
+}
+#submitPunchCardButton span {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  font-weight: 600;
+  font-size: 20px;
+}
+#submitPunchCardButton  p{
+  margin: 0 auto;
+  font-size: 20px;
+}
+#submitPunchCardButton:hover {
+  background-color:  #95923d;
+}
+#submitPunchCardButton:active {
+
+  box-shadow: 0 0.1rem #95923d;
+  -webkit-transform: translate(0em, 0.5em);
+  transform: translate(0em, 0.5em);
+}
+   
