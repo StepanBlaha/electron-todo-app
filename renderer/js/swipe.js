@@ -24,11 +24,68 @@ function createCard(content) {
       card.style.transform = 'translateX(-100%) rotate(-15deg)';
       console.log("Wrong")
     }
-
     card.style.opacity = '0';
     setTimeout(() => card.remove(), 400);
   });
 }
+
+// Function for loading the list with all the cards
+function loadCardList(){
+    // Get the cards
+    const cardContainer = document.getElementById('all-cards');
+    const cards = getCards();
+
+    cards.then(result => {
+        // Create the cards
+        for (let i = result.length - 1; i >= 0; i--) {
+            const card = document.createElement('div');
+            card.className = 'card-all';
+            card.innerHTML ="<div class='delete-punchcard-wrapper'><div class='delete-punchcard' data-id="+result[i]['id']+"></div></div><p class='card-text'>"+result[i]['content']+"</p>";
+            cardContainer.appendChild(card);
+        }
+    })
+    
+}
+
+// Function for triggerring the push card delete
+async function setupCardDelete() {
+    // Use event delegation on #todoContent for habitCheckId
+    $("#all-cards").on("click", ".delete-punchcard", function() {
+       // Get the id of the card to delete
+       const taskID = $(this).data("id");
+       console.log(taskID);
+       //Run the delete function
+       const result = cardDelete(taskID);
+       //Get the result from the promise
+       result.then(result => {
+           console.log(result);
+       }).then(() => {
+           //Reload the push cards
+           loadCardList();
+       })
+   });
+}
+
+// Function for deleting cards
+async function cardDelete(postId) {
+    try {
+        //Get the records
+        const response = JSON.parse(localStorage.getItem('punchCardRecords')) || [];
+        let newRecords = [];
+        //Filter the records to remove the deleted card
+        for(let i = 0; i < response.length; i++){
+            if(response[i].id != postId){
+                newRecords.push(response[i]);
+            }
+        }
+        //Set the new records to local storage
+        localStorage.setItem('punchCardRecords', JSON.stringify(newRecords));
+        console.log("Card deleted Successfully!");
+    } catch (error) {
+        console.log("Error deleting card.");
+    }
+}
+
 
  // Function for loading cards
  function loadCards() {
@@ -44,6 +101,9 @@ function createCard(content) {
             createCard(cardList[i]['content']);
         }
     })
+    // Reload tthe card list and delete listeners
+    loadCardList();
+    setupCardDelete();
  }
 
  // Function for emptying the card container
@@ -130,4 +190,7 @@ $(document).ready(function(){
     loadCards();
     // Add event listeners
     addCustomEventListeners();
+
+
+    loadCardList()
 });
