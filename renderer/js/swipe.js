@@ -7,7 +7,16 @@ function updateScore(change) {
 function setupScore(){
     scoreDisplay.textContent = `Score: 0/${totalCards}`;
 }
-
+// Checks if all cards are gone
+function isOver(){
+    let childrenCount = cardContainer.childElementCount
+    console.log(childrenCount)
+    if(childrenCount == 1){
+        setTimeout(()=>{
+            cardContainer.innerHTML =`<div id="pushCardFinalScore"><p>Score: ${score}/${totalCards}</p></div>`;
+        }, 500);
+    }
+}
 // Function for creating a single card
 function createCard(content) {
     // Create a card and add to the rest
@@ -22,11 +31,13 @@ function createCard(content) {
     if (ev.type === 'swiperight') {
       updateScore(1);
       card.style.transform = 'translateX(100%) rotate(15deg)';
-      console.log("Correct")
+      isOver();
+      console.log("Correct");
     } else {
       updateScore(0);
       card.style.transform = 'translateX(-100%) rotate(-15deg)';
-      console.log("Wrong")
+      isOver();
+      console.log("Wrong");
     }
     card.style.opacity = '0';
     setTimeout(() => card.remove(), 400);
@@ -35,8 +46,9 @@ function createCard(content) {
 
 // Function for adding punch cards
 async function addCard(){
-    //Get the input content
+    //Get the input content and clear the input
     const cardText = document.getElementById('addPunchCardInput').value;
+    document.getElementById('addPunchCardInput').value="";
     if (!cardText) {
         return;
     }

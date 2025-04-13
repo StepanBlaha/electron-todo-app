@@ -989,3 +989,14 @@ margin-top: 1rem;
   padding-left: 5px;
   padding-right: 5px;
 }
+#pushCardFinalScore{
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 35px;
+  font-weight: 700;
+  color: black;
+}
