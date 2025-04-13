@@ -1,7 +1,11 @@
 // Function for updating score
 function updateScore(change) {
   score += change;
-  scoreDisplay.textContent = `Score: ${score}`;
+  scoreDisplay.textContent = `Score: ${score}/${totalCards}`;
+}
+// Initial score text setup
+function setupScore(){
+    scoreDisplay.textContent = `Score: 0/${totalCards}`;
 }
 
 // Function for creating a single card
@@ -166,6 +170,9 @@ function loadCards() {
         for (let i = cardList.length - 1; i >= 0; i--) {
             createCard(cardList[i]['content']);
         }
+        // Score setup
+        totalCards = cardList.length
+        setupScore()
     })
 }
 
@@ -173,7 +180,7 @@ function loadCards() {
  function emptyCards(){
     cardContainer.innerHTML = ""
     cardListContainer.innerHTML = ""
-    scoreDisplay.textContent = `Score: 0`;
+    setupScore();
     score = 0
  }
 
@@ -210,12 +217,13 @@ function addCustomEventListeners() {
 
     // demo content
     let score = 0;
+    let totalCards = 0;
 
 $(document).ready(function(){
 
     //Load cards
     loadCards();
-    loadCardList();;
+    loadCardList();
     // Add event listeners
     addCustomEventListeners();
 
