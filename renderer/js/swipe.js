@@ -17,30 +17,88 @@ function isOver(){
         }, 500);
     }
 }
+// Function for updating the answer on the card
+function updateCardAnswer(id, ans) {
+    const cards = JSON.parse(localStorage.getItem('punchCardRecords')) || [];
+    cards.forEach(card => {
+        if (card.id === id) {
+            card.answer = ans;
+        }
+    });
+    localStorage.setItem('punchCardRecords', JSON.stringify(cards));
+    console.log("jds")
+    console.log(ans)
+    
+}
 // Function for creating a single card
-function createCard(content) {
+function createCard(content, id, answer) {
     // Create a card and add to the rest
-  const card = document.createElement('div');
-  card.className = 'punchCard';
-  card.innerHTML = "<p>"+content+"</p>";
-  cardContainer.appendChild(card);
+    const card = document.createElement('div');
+    card.className = 'punchCard';
+    card.innerHTML = `<div class='punchCardFlipButton' id='formBtn${id}' data-id='${id}'><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-help-icon lucide-circle-help"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><path d="M12 17h.01"/></svg></div><p class='punchCardAnswerTitle hiddenForm' id='punchCardAnswerTitle${id}'>Answer</p><p id='formQuestion${id}'>${content}</p><form action='' method='post' class='punchCardAnswerForm hiddenForm' id='form${id}'><input type='text' name='itemName' class='punchCardAnswerInp' placeholder='New card...'><div class='punchCardAnswerBtn' id='formSubBtn${id}'><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-send-horizontal-icon lucide-send-horizontal"><path d="M3.714 3.048a.498.498 0 0 0-.683.627l2.843 7.627a2 2 0 0 1 0 1.396l-2.842 7.627a.498.498 0 0 0 .682.627l18-8.5a.5.5 0 0 0 0-.904z"/><path d="M6 12h16"/></svg></div></form><p class='submittedText hiddenForm' id='text${id}'>${answer}</p> ` ;
+    cardContainer.appendChild(card);
+    
+    // Handle form open
+    document.getElementById('formBtn'+id).addEventListener('click', (e) => {
+        // Take the form and text
+        const form = document.getElementById('form' + id);
+        const submittedText = document.getElementById('text' + id);
+        const cardQuestion= document.getElementById('formQuestion' + id);
+        const cardAnswerTitle = document.getElementById('punchCardAnswerTitle'+id)
 
-  // Swipe mechanic
-  const hammer = new Hammer(card);
-  hammer.on('swipeleft swiperight', (ev) => {
-    if (ev.type === 'swiperight') {
-      updateScore(1);
-      card.style.transform = 'translateX(100%) rotate(15deg)';
-      isOver();
-      console.log("Correct");
-    } else {
-      updateScore(0);
-      card.style.transform = 'translateX(-100%) rotate(-15deg)';
-      isOver();
-      console.log("Wrong");
-    }
-    card.style.opacity = '0';
-    setTimeout(() => card.remove(), 400);
+      
+        // If submittedText is not empty, toggle showing that instead
+        if (submittedText.textContent.trim() !== '') {
+          submittedText.classList.toggle('hiddenForm');
+          form.classList.add('hiddenForm');
+        } else {
+          form.classList.toggle('hiddenForm');
+          submittedText.classList.add('hiddenForm');
+        }
+        // Togle the answer title and question content
+        cardQuestion.classList.toggle("hiddenForm")
+        cardAnswerTitle.classList.toggle("hiddenForm")
+
+    })
+
+    // Handle form submit
+    document.getElementById('formSubBtn'+id).addEventListener('click', function(event) {
+        event.preventDefault();
+        // Get the input value
+        const input = document.querySelector(`#form${id} input`);
+        const value = input.value.trim();
+        
+        // If input isnt empty add it to the submit text 
+        if (value !== '') {
+            // Show the submitted value
+            const submittedText = document.getElementById('text' + id);
+            submittedText.textContent = value;
+            // Update the card record
+            updateCardAnswer(id, value);
+        
+            // Hide form, show text
+            submittedText.classList.remove('hiddenForm');
+            document.getElementById('form' + id).classList.add('hiddenForm');
+          }
+    });
+
+
+    // Swipe mechanic
+    const hammer = new Hammer(card);
+    hammer.on('swipeleft swiperight', (ev) => {
+        if (ev.type === 'swiperight') {
+        updateScore(1);
+        card.style.transform = 'translateX(100%) rotate(15deg)';
+        isOver();
+        console.log("Correct");
+        } else {
+        updateScore(0);
+        card.style.transform = 'translateX(-100%) rotate(-15deg)';
+        isOver();
+        console.log("Wrong");
+        }
+        card.style.opacity = '0';
+        setTimeout(() => card.remove(), 400);
   });
 }
 
@@ -62,6 +120,7 @@ async function addCard(){
         punchCardRecords.push({
             id: newId,
             content: cardText,
+            answer: "" 
         });
         //Set the new records to local storage
         localStorage.setItem('punchCardRecords', JSON.stringify(punchCardRecords));
@@ -180,7 +239,7 @@ function loadCards() {
         cardList = result
         // Create the cards
         for (let i = cardList.length - 1; i >= 0; i--) {
-            createCard(cardList[i]['content']);
+            createCard(cardList[i]['content'], cardList[i]['id'], cardList[i]['answer']);
         }
         // Score setup
         totalCards = cardList.length
@@ -215,6 +274,9 @@ function addCustomEventListeners() {
     document.getElementById('openPunchCardsBtn').addEventListener('click', () => {
         window.electronAPI.openPunchCardWindow()
     })
+
+
+
 }
 
 
@@ -238,5 +300,7 @@ $(document).ready(function(){
     loadCardList();
     // Add event listeners
     addCustomEventListeners();
+
+
 
 });

@@ -999,3 +999,76 @@ margin-top: 1rem;
   font-weight: 700;
   color: black;
 }
+
+.punchCardFlipButton{
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  top: 20px;
+  left: 20px;
+}
+.punchCardFlipButton svg{
+  width: 100%;
+  height: 100%;
+  stroke: #9098a9;
+  transition: 0.2s ease-in-out;
+
+}
+.punchCardFlipButton svg:hover{
+  stroke: #4a4d53;
+  transition: 0.2s ease-in-out;
+}
+.punchCardAnswerForm{
+  position: absolute;
+  width: fit-content;
+  display: flex;
+  justify-content: space-between;
+
+}
+.punchCardAnswerInp{
+  background-color: #eee;
+  border: none;
+  padding-left: 5px;
+  margin-left: 5%;
+  font-size: 20px;
+  font-weight: 600;
+  width: 65%;
+  color: black;
+  cursor: pointer;
+  float: left;
+  text-indent: 10px;
+}
+.punchCardAnswerInp:focus{
+  outline: none;
+}
+.punchCardAnswerBtn{
+  width: 30px;
+  height: 30px;
+}
+.punchCardAnswerBtn svg{
+  width: 100%;
+  height: 100%;
+  stroke: #9098a9;
+  transition: 0.2s ease-in-out;
+
+}
+.punchCardAnswerBtn svg:hover{
+  stroke: #4a4d53;
+  transition: 0.2s ease-in-out;
+}
+.hiddenForm{
+  display: none;
+}
+.flledOutForm{
+  display: hidden;
+}
+.submittedText{
+  position: absolute;
+}
+.punchCardAnswerTitle{
+  position: absolute;
+  top: 13px;
+  font-weight: 600;
+  font-size: 30px;
+  color: #9098a9 !important;
+}
