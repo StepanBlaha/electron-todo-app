@@ -1,26 +1,26 @@
-# Totodo
+# Totodo :pencil:
 Small productivity and learning app i made for myself to help me keep all the stuff i need in one place and not have to open multiple separate apps.<br>
 Built with electron js.
 
-## Functions
-- To-do list - for keeping all your tasks in one place
-- Timer - for keeping track of time spent learning
-- Punch cards - for easy memoriyation of difficult subjects
+## Functions :gear:
+- To-do list :clipboard:- for keeping all your tasks in one place
+- Timer :clock3:- for keeping track of time spent learning
+- Punch cards :bookmark_tabs:- for easy memoriyation of difficult subjects
 
-## Instalation guide
+## Instalation guide :wrench:
 ```
 git clone https://github.com/StepanBlaha/electron-todo-app/
 cd electron-todo-app
 npm install
 ```
 
-## To build 
+## To build :hammer:
 ```
 npm run build
 ```
 Your build should be in the dist folder
 
-## To run in development
+## To run in development :computer:
 ```
 npm run dev
 ```
@@ -29,7 +29,7 @@ Or if you want to automatically see your changes each time you save
 npx electronmon .
 ```
 
-## Future improvements
+## Future improvements :bulb:
 In the near future i plan on adding multiple new features includng:
 - Pomodoro timer
 - Music player
