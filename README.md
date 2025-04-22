@@ -15,7 +15,7 @@ npm install
 ```
 
 ## To build :hammer:
-```
+``` 
 npm run build
 ```
 Your build should be in the dist folder
