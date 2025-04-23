@@ -11,7 +11,7 @@ Built with electron js.
 ```
 git clone https://github.com/StepanBlaha/electron-todo-app/
 cd electron-todo-app
-npm install
+npm install 
 ```
  
 ## To build :hammer:
