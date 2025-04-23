@@ -13,7 +13,7 @@ git clone https://github.com/StepanBlaha/electron-todo-app/
 cd electron-todo-app
 npm install
 ```
-
+ 
 ## To build :hammer:
 ``` 
 npm run build
