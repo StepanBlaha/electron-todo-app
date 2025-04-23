@@ -2,13 +2,13 @@ const { app, BrowserWindow, Menu, screen } = require('electron/main')
 const path = require('path')
 const { writeFile, readFile } = require('fs').promises;
 const { ipcMain } = require('electron')
-
+//timer window
 ipcMain.on('open-timer-window', () => {
   const primaryDisplay = screen.getPrimaryDisplay();
   const { width } = primaryDisplay.workAreaSize;
   createTimerWindow(width)
 })
-
+//punch card window
 ipcMain.on('open-punch-card-window', () => {
   const primaryDisplay = screen.getPrimaryDisplay();
   const { width } = primaryDisplay.workAreaSize;
