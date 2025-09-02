@@ -5,7 +5,7 @@ Built with electron js.
 ## Functions :gear:
 - To-do list :clipboard:- for keeping all your tasks in one place
 - Timer :clock3:- for keeping track of time spent learning
-- Punch cards :bookmark_tabs:- for easy memoriyation of difficult subjects
+- Punch cards :bookmark_tabs:- for easy memorization of difficult subjects
   
 ## Instalation guide :wrench:
 ```
